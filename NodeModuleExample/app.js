@@ -7,11 +7,10 @@ session = require('express-session'),
 errorhandler = require("express-error-handler"),
 mongoose = require('mongoose'),
 config = require("./config"),
-mconnnect = require("./connect/connect");
+database = require("./database/database");
 
-var DB,UserSchema,UserModel;
 var app = express();
-var user = require('./routes/user');
+var loute_loader = require('./routes/route_loader');
 
 //서버 포트 설정 및 static 정적파일 폴더로 public 폴더 설정
 app.set('port', config.server_port || 4000);
@@ -77,18 +76,21 @@ app.use(session({
   saveUninitialized:true
 }));
 
-app.post("/process/adduser" , user.adduser);
-app.post("/process/listuser", user.listuser);
-app.post("/process/login" , user.login);
+app.use(function(req, res , next){
+    console.log(app.router);
+    next();
+});
+
+
+// app.use(errorhandler.httpError(404));
+// app.use(errorhandler({
+//  static : {
+//    "404" : "./public/404.html"
+//  }
+// }));
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log("서버가 시작되었습니다. 포트 : " + app.get('port'));
-  DB = mconnnect.connection(mongoose,config.db_collections.db_shopping);
-  //user 스키마 및 모델 객체 생성
-  //user_schema.js 모듈 호출
-  UserSchema = require("./database/user_schema").createSchema(mongoose);
-  //UserModel 정의
-  UserModel = mongoose.model("users3", UserSchema);
-  console.log("UserModel 모델의 정의");
-  user.init(DB, UserSchema, UserModel);
+  database.init(app, config);
+  loute_loader.init(app);
 });

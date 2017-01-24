@@ -1,8 +1,6 @@
 //사용자 인증함수 : 아이디로 먼저 찾고 비밀번호를 그다음에 비교
-var authUser = function (DB, id, password , callback) {
+var authUser = function (DB,UserModel, id, password , callback) {
   console.log("authuser 호출됨.");
-
-
   // users 컬렉션 참조
   UserModel.findById(id , function (err,results) {
       if(err){
@@ -37,7 +35,7 @@ var authUser = function (DB, id, password , callback) {
 };
 
 
-var addUser = function (DB , id, password , name, callback) {
+var addUser = function (DB ,UserModel, id, password , name, callback) {
     console.log("addUser 호출됨");
     //user 컬렉션 참조
     var users = new UserModel({"id" : id, "password" : password , "name" : name});
@@ -149,16 +147,7 @@ var listuser = function (req, res) {
 };
 
 
-var DB,UserSchema,UserModel,
-init = function(db,schema, model){
-    console.log("init 호출됨");
-    DB = db;
-    UserSchema = schema;
-    UserModel = model;
-};
 
-
-exports.init = init;
 exports.login = login;
 exports.adduser = adduser;
 exports.listuser = listuser;
