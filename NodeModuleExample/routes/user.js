@@ -152,7 +152,6 @@ var listuser = function (req, res) {
 var DB,UserSchema,UserModel,
 init = function(db,schema, model){
     console.log("init 호출됨");
-
     DB = db;
     UserSchema = schema;
     UserModel = model;

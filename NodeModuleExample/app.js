@@ -5,56 +5,33 @@ bodyParser = require('body-parser'),
 cookieParser = require('cookie-parser'),
 session = require('express-session'),
 errorhandler = require("express-error-handler"),
-mongoose = require('mongoose');
+mongoose = require('mongoose'),
+config = require("./config"),
+mconnnect = require("./connect/connect");
 
 var DB,UserSchema,UserModel;
 var app = express();
 var user = require('./routes/user');
 
-/*console.log("스키마 정의 ");
-UserSchema.static("findById" , function (id,callback) {
-    return this.find({id:id}, callback);
-});
+//서버 포트 설정 및 static 정적파일 폴더로 public 폴더 설정
+app.set('port', config.server_port || 4000);
+app.use("/public" , express.static(path.join(__dirname , 'public')));
 
-UserSchema.static("findAll" , function (callback) {
-    return this.find({}, callback);
-});
-
-//user 모델 정의
-UserModel = mongoose.model("users2" , UserSchema);
-console.log("모델의 정의");*/
-
-function dbconnect() {
-   let databaseUrl = process.env.MDBPATH + "shopping";
-
-   // 데이터 베이스 연결 정보
-   mongoose.connect(databaseUrl);
-   DB = mongoose.connection;
-
-     // 데이터베이스 연결
-   DB.on("error" , console.error.bind(console , "mongoose connection error"));
-   DB.on("open" , function () {
-      console.log("데이터 베이스에 연결되었습니다.");
-      createUserSchema();
-
-
-   });
-   DB.on("disconnected" , dbconnect);
-}
-
-//user 스키마 및 모델 객체 생성
-function createUserSchema() {
-
-  //user_schema.js 모듈 호출
-  UserSchema = require("./database/user_schema").createSchema(mongoose);
-
-  //UserModel 정의
-  UserModel = mongoose.model("users3", UserSchema);
-  console.log("UserModel 모델의 정의");
-
-
-  user.init(DB, UserSchema, UserModel);
-}
+// function dbconnect() {
+//    let databaseUrl = process.env.MDBPATH + "shopping";
+//
+//    // 데이터 베이스 연결 정보
+//    mongoose.connect(databaseUrl);
+//    DB = mongoose.connection;
+//
+//      // 데이터베이스 연결
+//    DB.on("error" , console.error.bind(console , "mongoose connection error"));
+//    DB.on("open" , function () {
+//       console.log("데이터 베이스에 연결되었습니다.");
+//       createUserSchema();
+//    });
+//    DB.on("disconnected" , dbconnect);
+// }
 
 /*
 mongoose 모듈의 Schema Option
@@ -90,9 +67,6 @@ static(name , fn) 모델객체와 사용할수있는 함수추가
 method(name, fn)모델 인스턴스 객체에서 사용할수 있는 함수 추가
 */
 
-//서버 포트 설정 및 static 정적파일 폴더로 public 폴더 설정
-app.set('port', process.env.PORT || 4000);
-app.use("/public" , express.static(path.join(__dirname , 'public')));
 
 //======body-parser , cookie-parser , express-session 사용 설정=========
 app.use(bodyParser.urlencoded({extended : true}));
@@ -109,5 +83,12 @@ app.post("/process/login" , user.login);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log("서버가 시작되었습니다. 포트 : " + app.get('port'));
-  dbconnect();
+  DB = mconnnect.connection(mongoose,config.db_collections.db_shopping);
+  //user 스키마 및 모델 객체 생성
+  //user_schema.js 모듈 호출
+  UserSchema = require("./database/user_schema").createSchema(mongoose);
+  //UserModel 정의
+  UserModel = mongoose.model("users3", UserSchema);
+  console.log("UserModel 모델의 정의");
+  user.init(DB, UserSchema, UserModel);
 });
