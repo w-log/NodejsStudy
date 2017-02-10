@@ -1,0 +1,27 @@
+npm init //packege.json 설정파일 생성
+npm install // packege.json 안에 기록된 의존성 모듈 설치
+npm install 모듈명  // 모듈명을 찾아서 설치함
+npm list // 설치된 모듈목록
+npm info // 모듈정보
+npm search // 모듈검색
+npm update // 모듈업데이트
+npm uninstall // 모듈삭제
+
+모듈설치
+전역(global) 설치와
+지역(local) 설치가 존재함
+전역설치는  npm install 모듈명 -g 옵션을 붙여주면됨 관리자 권한필요
+위치는 운영체제와 시스템별로 다름
+모든곳에서 사용가능
+
+지역설치는 프로젝트마다 설치 default는 지역설치이며
+현재 폴더 하위에 node_modules 라는 폴더생성 후 그 폴더안에 설치됨.
+
+모듈의 설치 예
+npm install async
+npm install jade@1.0.0  // @는 버전을 기입할 수 있다. default는 최신버전 설치
+
+
+왠만하면 지역모듈을 권장하며
+모듈설치시에는 packege.json 을 먼저 생성한 후
+npm install nodemon --save 라는 옵션으로 packege.json에 의존성주입을 해주어야한다.
