@@ -1,0 +1,69 @@
+npm install express --save
+
+var express = require("express");
+var app = express();
+
+app.listen(3000);
+
+
+미들웨어
+요청 분석 ,처리하는 작은 모듈들
+여러개의 구성을 할 수 있다.
+
+app.use(fn)
+app.use(fn,fn,fn) //미들웨어를 스택형태로 쌓을 수 있다.
+
+express의 미들웨어
+애플리케이션 수준의 미들웨어 : var app = express() 수준
+라우터 수준의 미들웨어 : var Route = express.ROUTER() 수준
+에러 처리
+빌트인
+써드파티
+
+미들웨어 동작 순서 중요
+미들웨어 동작 순서 ( 보통 )
+ -파비콘 처리 미들웨어
+ -로깅
+ -정적파일
+ -서비스 미들웨어
+내장 미들웨어 : 별도 설치없음
+ -express.static 정적파일 세팅 메소드
+ 써드 파티 미들웨어 : 설치해야 사용가능
+ var cookieParser = require("cookie-parser");
+ //쿠키 분석 용 미들웨어
+
+
+정적파일 요청 = 위치가 고정되있는 파일 요청 js , html ,css
+미들웨어 생성 express.static("path",[options]);
+
+-Options
+ -etag : etag 사용 여부, default : true
+ -lastModified : Last-Modified 헤더 사용. 기본 true
+ -maxAge : max-age 메세지 헤더. 기본값 0
+ -index : 경로 요청시 기본 제공 파일. 기본값 index.html
+
+ //정적 파일 서비스 ( 경로 정보 파라메터 필수 )
+ app.use(express.static("images"));
+
+ -server-address/cute1.jpg -> ./images/cute1.jpg
+ -server-address/images/cute1.jpg -> ./images/image/cute1.jpg
+ 가상경로 설정
+ app.use("/static",express.static("files"));
+
+
+ -server-address/static/image.png -> ./files/image.png
+
+
+라우팅
+요청 -> 요청 처리 미들웨어로 분배
+HTTP 메소드 별로 라우팅가능
+URL 경로 별로 라우팅가능
+
+Express 응답 메소드
+req.json() : Json 응답 메세지 전송
+res.redirect() : 리다이렉션 응답 전송
+res.render() : 템플릿으로 렌더링
+res.send() : JSON, HTML, Buffer 전송 메세지 헤더에 Content-Type 자동 설정
+res.sendStatus() : 상태 코드와 상태 메세지 전송
+res.status() : 상태코드.( 설정 응답 메소드 종료안함 )
+res.download() : 파일 다운로드

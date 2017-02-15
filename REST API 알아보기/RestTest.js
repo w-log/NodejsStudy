@@ -11,7 +11,9 @@ var fs = require("fs");
 var data = fs.readFileSync("./movieData.json","utf8");
 var movieList = JSON.parse(data);
 
+function sss(){
 
+}
 
 var server = http.createServer(function(req, res){
     var method = req.method.toLowerCase();
