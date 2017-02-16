@@ -1,0 +1,23 @@
+[
+  {
+    "movieId":0,
+    "title":"Avata",
+    "director":"제임스 카메론",
+    "year":2009,
+    "reviews":[]
+  },
+  {
+    "movieId":1,
+    "title":"Starwars1",
+    "director":"조지 루카스",
+    "year":1977,
+    "reviews":[]
+  },
+  {
+    "movieId":2,
+    "title":"Interstella",
+    "director":"크리스토퍼 놀란",
+    "year":2014,
+    "reviews":[]
+  }
+]

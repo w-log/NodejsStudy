@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EJS Example</title>
+  </head>
+  <body>
+    <h1> <%= title%> </h1>
+    <ul>
+      <% cats.forEach(function(item){ %>
+      <li> <%=item.title %> </li>
+      <% });%>
+    </ul>
+  </body>
+</html>
+<!--
+ejs 엔진 특징
+html 태그 그대로 사용
+코드 실행 <% %> 스크립트 립
+결과 출력 <%= %>
+jsp 와 문법이 매우 비슷하다. = javascript기반의 jsp 파일이라고 봐도됨
+
+실행 코드 작성
+<% var value ="hello" %>
+여러 줄 작성
+<%
+var i = 0;
+var j = i + 1;
+%>
+HTML 과 혼합
+<% if (value) { %>
+<div>
+</div>
+<% } %>
+값으로 출력 <div> <%= value %> </div>
+태그 내 어트리뷰트 <img src="<%=data.image %>">
+HTML과 혼합
+<% var tag = "h1" %>
+<<%= tag %>> TAG 만들기 </<%=tag%>>
+
+템플릿 페이지가 없을 경우
+Error : Failed to lookup view "notexist" in views directory "/.../"
+템플릿 엔진 설정 없이 render 사용한 경우
+Error : No default engine was specified and no extension was provided
+
+템플릿 내 객체 정의 에러
+<%=undefinedVar%>
+
+
+
+-->

@@ -1,0 +1,28 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>영화 상세 정보</h1>
+<div>
+   <ul>
+      <li>제목 :  <%= movie.title %></li>
+      <li>감독 :  <%= movie.director %></li>
+      <li>연도 :  <%= movie.year %></li>
+   </ul>
+</div>
+<div>
+   <h3>리뷰 ( <%= movie.reviews.length %> )</h3>
+   <ul>
+      <% for (var i = 0 ; i < movie.reviews.length ; i++ ) { %>
+         <% var review = movie.reviews[i] %>
+         <li><%= review %></li>
+      <% } %>
+   </ul>
+   <form method="post" action="/movies/<%= movie.movieId %>">
+      <input type="text" name="review">
+      <input type="submit" value="입력">
+   </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Favorite Movies</h1>
+<div>
+   <ul>
+      <% for(var i = 0 ; i < data.length ; i++ ) { %>
+         <% var movie = data[i] %>
+         <li> <a href="/movies/<%= movie.movieId %>"> <%= movie.title %> </a></li>
+      <% } %>
+   </ul>
+</div>
+</body>
+</html>
