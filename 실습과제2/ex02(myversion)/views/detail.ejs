@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>영화 상세보기</title>
+  </head>
+  <body>
+    <ul>
+      <li>영화명 : <%=movieData.movieName%></li>
+      <li>영화 감독 : <%=movieData.movieDirector%></li>
+      <li>출시년 : <%=movieData.movieYear%></li>
+    </ul>
+    <h3>댓글</h3>
+    <table border="1">
+        <%for (var i = 0; i < movieData.review.length; i++){ %>
+      <tr>
+        <td>점수 : <%=movieData.review[i].testScore%></td>
+        <td>한줄 평 : <%=movieData.review[i].testReview%></td>
+      </tr>
+      <% } %>
+    </table>
+    <hr>
+    <h3>댓글남기기</h3>
+    <form action="/movies/<%=movieData.movieIndex%>" method="post">
+      점수 : <input type="number" max="100" name="testScore" >
+      한줄 평 : <input type="text" name="testReview">
+      <input type="submit" value="입력">
+    </form>
+  </body>
+</html>
