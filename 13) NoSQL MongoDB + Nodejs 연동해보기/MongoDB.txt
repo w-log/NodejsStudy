@@ -1,0 +1,13 @@
+MongoDB 소개
+SQL 작성이 필요없는 NoSQL 데이터 베이스
+사실 NoSQL이 SQL을 부정한다, 또는 안쓴다의 의미가 아니고
+Not Only SQL 의 약자이다.
+그러니 전부SQL 로 이루어진것이아닌 아니라 다른개념도 같이 포함되있다는 의미로 받아들이면 좋을것같다.
+
+-Document 기반의 데이터
+-Mongodb.org
+
+MongoDB 모듈 설치
+
+mongoDB native module : npm install mongodb
+mongoDB ODM module : npm install mongoose
