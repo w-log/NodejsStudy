@@ -92,6 +92,10 @@ callback 사용
 Promise로 사용. 반환값 promise. callback 사용 안함
 
 삭제하기(delete)
+deleteMany(filter , options, callback);
+deleteOne(filter, options ,callback);
+
+공통적으로 callback 함수를 인자로 정의하지않으면 promise 객체가 반환됨
 
 
 */

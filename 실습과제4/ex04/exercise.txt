@@ -1,0 +1,8 @@
+MongoDB 실습
+ - Express와 MongoDB 사용
+ - RESTful 서비스에 MongoDB 적용
+
+1. MongoDB 연결 초기 데이터 입력
+2. Scheme 정의 Model 생성, 목록과 상세 보기
+3. 영화 정보 추가/삭제/수정 : CRUD 완성
+4. 리뷰 추가 : 모델 함수 사용

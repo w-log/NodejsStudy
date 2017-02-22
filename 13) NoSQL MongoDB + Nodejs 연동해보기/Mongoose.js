@@ -38,7 +38,7 @@ var MovieSchema = mongoose.Schema({
   synopsis : String
 });
 
-var Mive = mongoose.model("Movie" , MovieSchema);
+var Movie = mongoose.model("Movie" , MovieSchema);
 
 /*
 mongoose 모듈의 Schema Option
@@ -87,3 +87,8 @@ avata.save(function(){});
 
 //promise 방식
 avata.save().then(resolved , rejected);
+/*
+update 는 native 모듈과 같음
+
+
+*/
