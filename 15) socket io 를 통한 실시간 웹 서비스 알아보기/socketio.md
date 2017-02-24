@@ -8,7 +8,7 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
 
   위와 같은 기술을 시도했음에도 불구하고 다양한 웹브라우저의 지원되는 차이가 존재하기했으며, 하나의 기술stack으로, HTML5의 표준인 Websocket을 자유롭게 사용하지못했기때문에 socket.io라는 라이브러리가 등장했습니다.
 
-- ### socket.io의 서버와 클라이언트 
+- ### socket.io의 서버와 클라이언트
 
   - __Server__
     1. HTTP 서버
@@ -21,7 +21,13 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
     2. socket.io 서버준비
     3. socket.io 클라이언트 요청 - HTML로 응답
     4. socket.io 클라이언트 초기화 및 서버접속
+
+
+
 ---
+
+
+
 - ### 실시간 서비스를 위한 서버 준비
   - __Socket.io 서버 생성__
   ```javascript
