@@ -82,12 +82,13 @@
 
   ### 쿠키 다루기
   - __쿠키 쓰기/ 삭제 : Express 기본__
+
     ```javascript
     //쓰기 name , value [,option]
     response.cookie(name, value[,options]);
     //삭제 name [,options]
     response.clearCookie(name[, options]);
-    /*
+
     options list
     domain : 쿠키가 적용되는 서버
     path : 쿠키가 적용되는 경로
@@ -96,9 +97,10 @@
     httpOnly : HTTP 프로토콜에서만 사용
     secure : HTTPS 에서만 사용 여부. type : Boolean
     signed : 서명 여부. type : Boolean
-    */
     ```
+
   - __Cookie parser 사용 예제__
+
     ```javascript
     var express = require("express")
     var cookieParser = require("cookie-parser");
@@ -107,14 +109,18 @@
     app.use(cookieParser());
     //미들웨어 함수 등록![cookieheader](/assets/cookieheader.png)
     ```
+
  - __Cookie 기록하기(Write)__
+
     ```javascript
     //쓰기
     response.cookie("last", "2015.8.5");
     response.cookie("viset" , "2");
     ```
 
+
  - __Cookie 읽기(Read)__
+
      ```javascript
      //읽기
     var last = request.cookies.last;
@@ -122,6 +128,8 @@
     var visit = request.cookies.visit;
     console.log(visit) // 2
      ```
+
+
 ![cookieheader](http://i.imgur.com/21ct2j1.png)
 - __HTTP 요청과 응답Header안에  Cookie 위와 같이 설정된다.__
 ---
