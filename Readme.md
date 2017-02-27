@@ -47,7 +47,7 @@
 
 
 
-  - [Rest Api 알아보기](https://github.com/tawon2137/NodejsStudy/tree/master/9%20REST%20API%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/Restapi.md)
+- [Rest Api 알아보기](https://github.com/tawon2137/NodejsStudy/tree/master/9%20REST%20API%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/Restapi.md)
 
 ---
  __이외에 파일들은 현재 markdown 문법으로 정리한내용들을 작성중에 있습니다.__
