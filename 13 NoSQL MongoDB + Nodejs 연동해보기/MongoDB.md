@@ -215,6 +215,8 @@ var Movie = mongoose.model("Movie" , MovieSchema);
   - __unique : 값이 True면 이 속성에 고유한 값이 들어가야 합니다.(RDBMS primary key 와 동일함.)__
 
 - mongoose 모듈의 Data Type
+
+
   | Type | Data |
   | :------------ | :----------- |
   | String | 문자열 타입 |
@@ -228,6 +230,8 @@ var Movie = mongoose.model("Movie" , MovieSchema);
 
 - mongoose 모듈의 함수(CRUD 기준)
   mongoose 함수 (CRUD 기준)
+
+
   | 함수명 | 기능 |
   | :------------ | :----------- |
   | find("query", callback) | 조회 |
@@ -240,6 +244,8 @@ var Movie = mongoose.model("Movie" , MovieSchema);
   document 안에 내용중 일부를 삭제하고 싶을때는 update를 사용한다.)__
 
 - 스키마 객체에 메소드 추가
+
+
   | 함수명 | 기능 |
   | :------------ | :----------- |
   | static(name , fn) | 모델객체가 사용할수있는 함수추가 |
