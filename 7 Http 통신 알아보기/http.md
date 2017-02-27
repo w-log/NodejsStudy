@@ -263,6 +263,8 @@ var server = http.createServer();
 server.listen(포트번호Number);
 ```
 포트 알아보기
+
+
 | Port | Number |
 | :------------: | :------------ |
 | 0 ~ 1023  | well-known port. 미리 정의된 포트 , 관리자 권한 필요 |
