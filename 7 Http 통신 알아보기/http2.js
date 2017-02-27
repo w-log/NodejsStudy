@@ -50,7 +50,7 @@ var http = require("http");
 var server = http.createServer(function(req , res){
     res.statusCode = 200;
     res.statusMessage="OK";
-    res.setHeader("content-type", "text/plain")
+    res.setHeader("content-type", "text/plain");
 
     res.end("<h1>hello world</h1>");
 }).listen(8000);

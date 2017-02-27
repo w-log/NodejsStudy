@@ -52,5 +52,9 @@
 
 - [HTTP post 요청처리해보기](https://github.com/tawon2137/NodejsStudy/tree/master/8%20Http%20post%20%EC%9A%94%EC%B2%AD%20%EB%8B%A4%EB%A3%A8%EA%B8%B0/postrequest.md)
 
+
+- [HTTP 통신 알아보기](https://github.com/tawon2137/NodejsStudy/tree/master/7%20Http%20%ED%86%B5%EC%8B%A0%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/http.md)
+
+
 ---
  __이외에 파일들은 현재 markdown 문법으로 정리한내용들을 작성중에 있습니다.__
