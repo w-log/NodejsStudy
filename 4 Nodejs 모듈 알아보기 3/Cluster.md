@@ -99,7 +99,7 @@ if ( cluster.isMaster ) {
 
 - 마스터가 워커에게 데이터 전달
 ```javascript
-worker.send(data);
+master.send(data);
 ```
 
 - 워커의 데이터 이벤트
