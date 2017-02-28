@@ -56,5 +56,19 @@
 - [HTTP 통신 알아보기](https://github.com/tawon2137/NodejsStudy/tree/master/7%20Http%20%ED%86%B5%EC%8B%A0%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/http.md)
 
 
+- [비동기처리의 흐름제어 Async 와 Promise](https://github.com/tawon2137/NodejsStudy/tree/master/6%20%ED%9D%90%EB%A6%84%20%EC%A0%9C%EC%96%B4%20Async%20%2C%20promise%20%20%EC%BD%9C%EB%B0%B1%20%ED%97%AC%EC%9D%98%20%ED%95%B4%EA%B2%B0/Async.md)
+
+
+
+- [npm을 통한 모듈관리](https://github.com/tawon2137/NodejsStudy/tree/master/5%20npm%EC%9D%84%20%ED%86%B5%ED%95%9C%20%EB%AA%A8%EB%93%88%EA%B4%80%EB%A6%AC/npm.md)
+
+
+
+- [Cluster 모듈을 통한 멀티 프로세스](https://github.com/tawon2137/NodejsStudy/tree/master/4%20Nodejs%20%EB%AA%A8%EB%93%88%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0%203/Cluster.md)
+
+
+- [Stream 과 URL 알아보기 ](https://github.com/tawon2137/NodejsStudy/tree/master/4%20Nodejs%20%EB%AA%A8%EB%93%88%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0%203/streamandurl.md)
+
+
 ---
  __이외에 파일들은 현재 markdown 문법으로 정리한내용들을 작성중에 있습니다.__
