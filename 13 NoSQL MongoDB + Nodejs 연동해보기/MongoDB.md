@@ -277,4 +277,4 @@ avata.save().then(resolved , rejected);
 node와 mongo의 조합은 강력한것같습니다.__
 
 
-- __위 글은 T아카데미 Nodejs 서버개발 강의를 바탕으로 작성된 포스팅입니다.__
+  - __위 소스코드는 T아카데미 Nodejs 서버개발 강의를 바탕으로 작성된 내용입니다.__

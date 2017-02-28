@@ -168,4 +168,5 @@ function handleGetRequest(req , res){
 
 
 
-  - __위 소스코드는 T아카데미 Nodejs 서버개발 강의를 바탕으로 작성된 소스코드입니다.__
+
+  - __위 포스팅은 T아카데미 Nodejs 서버개발 강의를 바탕으로 작성된 내용입니다.__
