@@ -52,9 +52,8 @@ __절차__
 $ npm install passport
 ```
   - __절차__
-  <br>
 
-    ![passport 절차](./assets/passport절차.png)
+![passport 절차](./assets/passport절차.png)
 
 
 - __Module 로딩과 초기화___
