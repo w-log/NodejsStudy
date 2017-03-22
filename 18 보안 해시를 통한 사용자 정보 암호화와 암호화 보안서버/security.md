@@ -69,7 +69,9 @@
  - __해시 사용예2__
     - 사용자 비밀번호 저장
     -  암호 대신 비밀번호의 해쉬값 저장
-    ![hashpassword](/assets/hashpassword.png)
+
+
+![hashpassword](./assets/hashpassword.png)
 
 
  - __위에 예제를 통한 사용자 인증시__
