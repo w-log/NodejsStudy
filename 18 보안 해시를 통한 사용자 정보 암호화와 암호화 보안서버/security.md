@@ -90,7 +90,8 @@
     - 사용자의 해시 암호와 비교
     - 무차별 입력(brute force), 룩업 등
 
-![hash rainbowtable](</assets/hash rainbowtable.png>)
+![hash rainbowtable](./assets/hashrainbowtable.png)
+
   - 위와같이 해쉬값 끼리 비교해서 비밀번호를 얻어낼 수 있음.
 
  - __해결방안 ?__

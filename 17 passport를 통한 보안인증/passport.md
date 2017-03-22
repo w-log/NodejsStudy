@@ -51,11 +51,10 @@ __절차__
 ```javascript
 $ npm install passport
 ```
+  - __절차__
+  <br>
 
-<center>__절차__</center>
-
-
-<center>![passport 절차](./assets/passport절차.png)</center>
+    ![passport 절차](./assets/passport절차.png)
 
 
 - __Module 로딩과 초기화___
