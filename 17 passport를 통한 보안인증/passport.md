@@ -48,8 +48,9 @@ __절차__
   - __passport__(http://passportjs.org)
 
   - __설치__
-  > $ npm install passport
-
+```javascript
+$ npm install passport
+```
 
 <center>__절차__</center>
 
@@ -57,71 +58,77 @@ __절차__
 <center>![passport 절차](./assets/passport절차.png)</center>
 
 
-    - __Module 로딩과 초기화___
+- __Module 로딩과 초기화___
+
     ```javascript
     var passport = require("passport");
     app.use(passport.initialize());
     ```
 
-    - __Strategy 설정___
-    ```javascript
+- __Strategy 설정___
+```javascript
     var Strategy = require("passport-strategy").Strategy;
     passport.use(
       new Strategy(function(username,password , done){})
     )
-    ```
-      - 다양한 인증 제공
-        1. LocalAuth
-        2. facebook, twitter, google
-        3. kakao talk 등등
+```
+- 다양한 인증 제공
+    1. LocalAuth
+    2. facebook, twitter, google
+    3. kakao talk 등등
 
-    - __인증 요청__
-    ```javascript
-    app.post("/login", passport.authenticate("local"));
-    ```
-    - __인증 성공시__
-      - 성공 메세지와 코드
-      - 성공 페이지 이동(웹)
-    - __인증 실패시__
-      - 실패 메세지와 코드
-      - 로그인 페이지(웹)
-  - __session 기록과 읽기__
-    ```javascript
-    //쓰기 (기록)
-    passport.serializeUser(function(user,done){});
-    //읽기
-    passport.deserializeUser(function(id,done){});
-    ```
-    - __요청 마다 세션 기록과 읽기__
-      - passport.authenticate 이후 세션 기록(serializeUser)
-      - 일반 요청마다 세션에서 읽기(descrializeUser)
+
+
+- __인증 요청__
+```javascript
+  app.post("/login", passport.authenticate("local"));
+```
+- __인증 성공시__
+  - 성공 메세지와 코드
+  - 성공 페이지 이동(웹)
+- __인증 실패시__
+  - 실패 메세지와 코드
+  - 로그인 페이지(웹)
+- __session 기록과 읽기__
+```javascript
+  //쓰기 (기록)
+  passport.serializeUser(function(user,done){});
+  //읽기
+  passport.deserializeUser(function(id,done){});
+```
+- __요청 마다 세션 기록과 읽기__
+    - passport.authenticate 이후 세션 기록(serializeUser)
+    - 일반 요청마다 세션에서 읽기(descrializeUser)
 
     - __세션에서 읽어온 데이터__
-      ```javascript
-      request.user
-      //passport를 사용했을때만 프로퍼티가 생성됨
-      ```
+```javascript
+  request.user
+  //passport를 사용했을때만 프로퍼티가 생성됨
+```
 ---
 ### Local Auth
-  - __로컬 인증용 Strategy__
-    > passport-local
-
-  - __설치__
-    > $ npm install passport-local
-  - __module 로딩과 Strategy 로딩__
-  ```javascript
+- __로컬 인증용 Strategy__
+```javascript
+ passport-local
+```
+- __설치__
+```javascript  
+ $ npm install passport-local
+```    
+- __module 로딩과 Strategy 로딩__
+```javascript
   var LocalStrategy = require("passport-local").Strategy
-  ```
-  - __인증 Strategy__
-  ```javascript
+```
+- __인증 Strategy__
+```javascript
   var strategy = new LocalStrategy(Option , function(username , password , done){});]
 
   options{
   //passReqToCallback: 요청객체 (req) 를 파라미터로 전달
   //usernameField, passwordField : 사용자 ID, Password에 해당하는 필드 이름 등록
+  // form 양식내에서 보낸 req.body 안에 파라메터를 함수의 인자로 전달해준다.
   }
-  ```
-  > form 양식내에서 보낸 req.body 안에 파라메터를 함수의 인자로 전달해준다.
+```
 
   - __Strategy의 인증 기능 구현__
   ```javascript
@@ -129,10 +136,14 @@ __절차__
   ```
   - __인증 함수 구현__
       - 인증 성공
-         > done(null, USER-INFO)
-
+      ```javascript
+       done(null, USER-INFO)
+      ```
       - 인증 실패
-         > done(null , false , FAILURE-INFO)
+      ```javascript
+       done(null , false , FAILURE-INFO)
+      ```
+
 
   - __예제코드__
   ```javascript
