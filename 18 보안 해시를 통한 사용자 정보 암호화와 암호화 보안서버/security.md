@@ -354,7 +354,6 @@ https.createServer(options, app).listen(3001);
 ### 보안서버 의무화
 
 - 영리 목적으로 하는 개인정보 수집 서비스는 보안서버가 의무화 되있습니다.
-
 - 무료
   - https://www.startssl.com
   - https://letsencrypt.org
