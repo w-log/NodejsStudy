@@ -248,7 +248,7 @@ emitter.removeAllListeners([array Events]); //인자로 넘긴이벤트 전부�
 
 - 최대 이벤트 핸들러 개수 ( 기본 10개 )
 ```javascript
-emmitter.setMaxListeners( number )// 최대 갯수 설정
+emitter.setMaxListeners( number )// 최대 갯수 설정
 emitter.getMaxListeners(); //최대 갯수 반환
 ```
 
