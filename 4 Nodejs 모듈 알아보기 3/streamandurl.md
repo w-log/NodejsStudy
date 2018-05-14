@@ -1,4 +1,3 @@
-
 # Stream 과 URL 알아보기
 
 
@@ -105,7 +104,7 @@ is.pipe(os);
 - URL 구조
 ```
    (protocol)                 (           path          )
-      http: // www.naver.com/ search?q=iphone&format=json
+      http: // www.example.com/ search?q=iphone&format=json
     (스키마)  (    호스트   )        (       query       )
 ```
 
@@ -176,14 +175,14 @@ console.log(urlstr)// http://idols.com/schedule/radio?time=9pm&day=monday
 ```javascript
 var url = require("url");
 
-var urlStr = "http://idols.com/hot/q?group=EXID&name=하니&since=";
+var urlStr = "http://example.com/hot/q?group=development&name=kimtaewoong&since=2016";
 
 var parsed = url.parse(urlStr);
 console.log(parsed); //object {....}
 
 console.log("protocol : ",parsed.protocol); // http
-console.log("host : ",parsed.host); // idols.com:80
-console.log("query : ",parsed.query); //?group=EXID&name=하니&since=
+console.log("host : ",parsed.host); // example.com:80
+console.log("query : ",parsed.query); //?group=development&name=kimtaewoong&since=2016
 
 ```
 
@@ -210,11 +209,11 @@ stringify(object[,option]);
 
 //간단한 예제
 var obj = {
-  name : "IU",
-  best : "좋은날"
+  name : "kimtaewoong",
+  age : 24
 };
 var queryStr = queryString.stringify(obj);
-console.log(queryStr); // ?name=IU&best=좋은날
+console.log(queryStr); // ?name=kimtaewoong&age=24
 ```
 
 
@@ -223,9 +222,7 @@ console.log(queryStr); // ?name=IU&best=좋은날
 
 ### 포스팅 마치며..
 
-  - __스트림이나 URL 같은경우는 Nodejs에서만 쓰는개념이라기 보다는 스트림은 데이터를 주고받는데에 있어서 사용하는 하나의 방식이고, URL같은 경우는 웹에서 HTTP 프로토콜을 사용하는데에 있어 필수적으로 알아야 될개념이다. Nodejs는 생각보다 이런 기능들을 사용하기 쉽게 구현해놓았고, URL 과 queryString 모듈은 기본모듈이니 잘알아두자__
-
-
+  - __스트림이나 URL 같은경우는 Nodejs에서만 쓰는개념이라기 보다는 프로그래밍적인 부분에서는 연속되는 데이터(바이트 텍스트 혹은 이진(바이너리) 데이터를 의미한다. URL같은 경우는 웹에서 HTTP 프로토콜을 사용하는데에 있어 필수적으로 알아야 될개념이다. Nodejs는 생각보다 이런 기능들을 사용하기 쉽게 구현해놓았고, STREAM 모듈과 URL 모듈은 기본모듈 api를 한번정도보는것을 권장한다.__
 
 
   - __위 포스팅은 T아카데미 Nodejs 서버개발 강의를 바탕으로 작성된 내용입니다.__
