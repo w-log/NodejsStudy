@@ -132,7 +132,7 @@ parsing.query // queryString
 ```
 
 ```javascript
-var urlString = "http://naver.com/?name=김태웅&age=24";
+var urlString = "http://example.com?name=김태웅&age=24";
 
 url.parse(urlString,true).query.name // 김태웅
 url.parse(urlString,true).query.age // 24
@@ -223,7 +223,7 @@ console.log(queryStr); // ?name=IU&best=좋은날
 
 ### 포스팅 마치며..
 
-  - __스트림이나 URL 같은경우는 Nodejs에서만 쓰는개념이라기 보다는 스트림은 데이터를 주고받는데에 있어서 쓰사용하는 하나의 방식이고, URL같은 경우는 웹에서 HTTP 프로토콜을 사용하는데에 있어 필수적으로 알아야 될개념이다. Nodejs는 생각보다 이런 기능들을 사용하기 쉽게 구현해놓았고, URL 과 queryString 모듈은 기본모듈이니 잘알아두자__
+  - __스트림이나 URL 같은경우는 Nodejs에서만 쓰는개념이라기 보다는 스트림은 데이터를 주고받는데에 있어서 사용하는 하나의 방식이고, URL같은 경우는 웹에서 HTTP 프로토콜을 사용하는데에 있어 필수적으로 알아야 될개념이다. Nodejs는 생각보다 이런 기능들을 사용하기 쉽게 구현해놓았고, URL 과 queryString 모듈은 기본모듈이니 잘알아두자__
 
 
 
