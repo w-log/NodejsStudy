@@ -1,6 +1,6 @@
-## npm을 통한 module 관리 알아보기
+### npm을 통한 module 관리 알아보기
 
-- npm ?
+- __npm ?__
   - __Node.js Package Manager__ 의 약자
   - nodejs의 모듈생태계는 commonjs라는 라이브러리를 채택하고있음
   - npm 내에서 모듈을 탐색하고 저장한다.
@@ -11,10 +11,13 @@
   - 모듈 작성해보기
 ```javascript
 //commonjs는 파일별로 단독적인 scope영역을 가지고 있으며 require("모듈명");으로 호출가능
-module.exports.goodmoning = function(){
-   console.log("asdsadsad");
+//./module.js
+module.exports.goodMorning = function(){
+   console.log("test");
 };
-  ```
+//호출시
+var mod = require('./module.js').goodMorning() // test;
+```
 
 
 - 커맨드라인(CMD) 명령어 보기
