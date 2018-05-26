@@ -16,7 +16,8 @@
 -action : 요청 경로
 
 
-- post 요청 중복방지 (__post__ 요청 이후에 __rediretion__ 을 통해서 __get__ 요청을 한번 더 보내서 새로고침이후 중복실행이 안되게함 (__PRG패턴__) )
+- post 요청 중복방지 (__post__ 요청 이후에 __rediretion__ 을 통해서 __get__ 요청을 한번 더 보내서 새로고침이후 중복실행이 안되게함 (__PRG패턴__) 
+- 일반적인 패턴이긴하지만 PRG패턴 적용후에 뒤로가기로 똑같은 요청의 히스토리가 남아있다면 뒤로가기를 방지하는 코드와 함께 작성해야함.
 ```javascript
 req.on("end", function () {
     res.statusCode = 302;
