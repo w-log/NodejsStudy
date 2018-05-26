@@ -1,4 +1,4 @@
-# HTTP 통신 알아보기
+## HTTP 통신 알아보기
 
 - HTTP ?
   - __Hyper Text Transfer Protocol__
@@ -20,7 +20,7 @@
 
 - __브라우저 마다 개발자 도구가 존재함 개발자 도구는 브라우저 요청에 따른 정보와 응답한 Data를 볼 수 있음__
 
-## HTTP Request
+#### HTTP Request
 
 - http 요청 메세지 ( HTTP Request )
 
@@ -151,7 +151,7 @@ BinaryData==
 
 -----------
 
-## HTTP Response
+#### HTTP Response
 
 - HTTP 응답메세지 ( __HTTP Response__ ) 알아보기
   - 응답의 구성
@@ -232,7 +232,7 @@ CRLF ---------------------------------
 
 ---
 
-## HTTP Module 알아보기
+#### HTTP Module 알아보기
 
 
 - __http 모듈알아보기__
@@ -377,7 +377,7 @@ var server = http.createServer(function(req , res){
 ---
 
 
-## 정적 파일 요청에 대한 응답
+#### 정적 파일 요청에 대한 응답
 
 - 정적 파일 요청에 대한 응답해보기
     1. 정적인 컨텐츠 (image 파일 , html 파일 , 음악 등) 요청
@@ -421,7 +421,7 @@ var fs = require("fs");
 fs.createReadStream(path).pipe(res);
 ```
 
-### 정작 파일 서비스
+#### 정작 파일 서비스
 - __요청 URL의 경로를 실제 파일 경로 매핑__
 myServier.com/resource/image.png -> ./resource/image.png
 myServier.com/resource/audio.mp3 -> ./resource/audio.mp3
@@ -430,9 +430,9 @@ myServier.com/resource/audio.mp3 -> ./resource/audio.mp3
 
 ---
 
-### 포스팅 마치며..
+#### 포스팅 마치며..
 
-  - __내용이 여태껏중에 제일많았던것같다.. 내용에서 증명해주듯이 웹개발자가 http 프로토콜을 모른다는건 음.. 어떤의미로도 비유는 안될것같고 그냥 필수 소양인것처럼 느껴진다. 결과적으로 프론트엔드던 백엔드던간애 클라이언트와 서버간의 요청, 응답방식을 잘알고있어야 효율적인 웹개발이 가능해지는것같다.__
+  - __내용이 여태껏중에 제일많았던것같다.. 내용에서 증명해주듯이 웹개발자가 http 프로토콜을 모른다는건 음.. 어떤의미로도 비유는 할 수 없다고 생각하며, 반드시 알아야할 필수 내용이라고 생각된다. 결과적으로 프론트엔드던 백엔드던간애 클라이언트와 서버간의 요청, 응답방식을 잘알고있어야 효율적인 웹개발이 가능해지는것같다.__
 
 
 
