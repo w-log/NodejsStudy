@@ -5,13 +5,13 @@
   | HTTP메소드 | 특징 |
   | :------------ | :----------- |
   | get | - URL로 요청 <br> - URL 길이 제한이 존재함. <br> - 암호화가 힘듬 = 보안 취약 <br> - Message body 분석 불필요 |
-  | post  | - Message body로 요청정보 전달 <br> - 바디 분석 필요 |
+  | post  | - Message body로 요청정보 전달 <br> - 서버에서 요청을 분석시에 Message body도 분석이 필요함 |
 
 
 - 웹 브라우저의 주소창을 이용한 URL 요청 방식은 = get method 방식
 - 웹 브라우저내에 HTML 의 form tag를 통한 요청 방식 = get, post 방식 둘다 사용가능
 
-- 폼 구성 요소 알아보기
+- 폼 속성 요소(attribute) 알아보기
 -method : get, post
 -action : 요청 경로
 
