@@ -1,9 +1,12 @@
-# Async 비동기의 흐름제어
+## 비동기의 흐름제어
 
 
-### Promise 알아보기
+#### Promise 알아보기
 
 - ES 6이후부터 Promise는 ES6 표준으로 채택되었음으로 Node.js 4.x버전이후는 모듈의 로딩이 따로 필요없다.
+
+- 두 라이브러리 전부 비동기처리의 흐름제어와 관련있는 라이브러리이므로 Node에 국한됬다기보다는 자바스크립트 비동기 함수를 활용함에 있어서 callback hell같은 문법지옥을 방지하고 흐름을 단순화시킨다.
+
 
 
 - promise 의 상태
@@ -11,8 +14,8 @@
 
   | 상태 | value |
   | :------------: | :------------: |
-   | pending | 초기 상태 |
-  | fulfilled | 비동기 동작 성공  |
+  | pending | 초기 상태 |
+  | fulfilled | 동작 성공  |
   | rejected | 동작 실패 |
 
 
@@ -29,26 +32,26 @@
      }
  });
  ```
-- Promise 를 사용하는 태스크 방법
+- Promise를 사용하는 비동기 처리 방법
 ```javascript
 function task(){
-    return new Promise(function(fullfill,reject){
-        if( 1 ) fullfill("Success");
+    return new Promise(function(resolve, reject){
+        if( true ) fullfill("Success");
         else reject("Error");
     });
 }
 
 task().then(function(result){
-    console.log(result);
+    console.log(result); //Success
 },function(error){
     console.error(error);
 });
 
 
-function task1(fullfill , reject) {
+function task1(resolve , reject) {
     console.log("task 1 start");
     setTimeout(function(){
-        reject("task1결과");
+        reject("task 1 error");
     },300);
 }
 
@@ -56,15 +59,130 @@ new Promise(task1).then(function(result){
     console.log("task1끝");
     console.log(result);
 },function(error){
-  console.error(error);
+  console.error(error); //task 1 error
 });
-//실제로 많이 써볼것을 권장!
+
 ```
+
+- __Promise.all__ 
+```javascript
+/*
+반환하는 Promise가 인자로 받은 iterable내의 
+모든promise가 이행될시에 이행상태가 되며,
+하나의 Promise라도 reject가 될시에는 reject 상태가됨
+*/
+
+function task(time) {
+    return function(resolve, reject) {
+        setTimeout(function() {
+             time ? resolve(`${time}ms 후에 수행됨.`) : reject('time 값이 유효하지않음.')
+        }, time);
+    }
+}
+
+var promises = [
+    new Promise(task(100)),
+    new Promise(task(200)),
+    new Promise(task(300))
+]
+
+
+Promise.all(promises)
+    .then(resultArray => console.log(resultArray.join('|'))) 
+    // 100ms 후에 수행됨.|200ms 후에 수행됨.|300ms 후에 수행됨.
+    .catch(msg => console.error(msg));
+
+
+
+var promises2 = [
+    new Promise(task(100)),
+    new Promise(task(0)),
+    new Promise(task(300))
+]
+
+
+Promise.all(promises2)
+    .then(resultArray => console.log(resultArray.join('|'))) 
+    .catch(msg => console.error(msg));// time값이 유효하지않음. (reject)
+```
+
+- __Promise.race__ 
+```javascript
+/*
+Promise.all과 달리 반환하는 promise가 iterable내의 
+가장먼저 처리되는 promise 처리상태에 
+따라서 이행되거나 불이행된다.
+*/
+function task(name, time) {
+    return function(resolve, reject) {
+        setTimeout(function() {
+             time ? resolve(`${name} : ${time}ms 시간후에 이행됨.`) : reject(`${name}: time 값이 유효하지않음.`)
+        }, time);
+    }
+}
+
+var promises = [
+    new Promise(task('김태웅1', 300)),
+    new Promise(task('김태웅2', 200))
+];
+
+Promise.race(promises)
+    .then(msg => console.log(msg)) // 김태웅2 : 200ms 시간후에 이행됨. 
+    .catch(msg => console.error(msg));
+
+
+var promises2 = [
+    new Promise(task('김태웅1', 0)),
+    new Promise(task('김태웅2', 200))
+];
+
+Promise.race(promises2)
+   .then(msg => console.log(msg))
+   .catch(msg => console.error(msg));// 김태웅1: time 값이 유효하지않음.
+```
+
+- __Promise를 활용한 비동기함수의 순차처리를 중첩콜백을 하지않고 사용하기(예제 setTimeout)__
+
+
+```javascript
+const arr = [];
+//각요청당 500ms후 이행되는 Promise를 반환하는 함수 각각 10번 생성해서 배열에 담음.
+for(let i = 0; i < 10; i++) {
+	//promise를 return 하는 함수를 배열에 담음
+	arr.push(_ => new Promise((resolve, reject) => { 
+  	// ajax 요청을 가정
+     console.log(i,'요청')
+    setTimeout(_ => {
+    // ajax 요청 끝났을때
+     console.log(i, '요청 끝');
+     resolve();
+    }, 500) 
+   }));
+}
+
+/*
+promise배열을 리턴하는 함수를 가진배열을 인자로 받고 promise.resolve함수를 호출해 이행된
+프로미즈객체의 then체인에 promise를 리턴하는 함수를 전달함으로서 배열에 넣은 함수들이 
+then체인을 따라서 순차적으로 수행될 수 있도록1함.
+*/
+function runPromiseSequnce(promiseFunction) {
+  let p = Promise.resolve();
+  
+  promiseFunction.forEach(promiseFn => {
+  	 p = p.then(promiseFn);
+  });
+  
+  return p;
+}
+
+runPromiseSequnce(arr).then(_ => console.log('end!'));
+```
+
+#### 실제로 많이 써볼것을 권장!
 
 ---
 
-## Async Module
-- Promise는 사용목적이 비동기 흐름제어를 하기위해서만은 아니지만 주로 흐름제어하는곳에 자주쓰인다.
+#### Async (npm module)
 - 이번에 볼 Async 모듈은 Nodejs에서 비동기 흐름제어만을 하기위한 모듈이다.
 
 -  콜백의 흐름제어
