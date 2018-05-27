@@ -218,8 +218,7 @@ app.listen(3000);
 ### body-parser 알아보기
 
 - __body-parser ?__
-  - __모듈이름이 잘설명해준다.__
-  - __request (클라이언트 요청) method가 post 일떄 message body에 같이넘어오는 data들을 parsing 해준다.__
+  - __request (클라이언트 요청)에서 message body가 있을때 message body의 데이터들을 자바스크립트 객체화시킨다.__
 
 
 - 설치
