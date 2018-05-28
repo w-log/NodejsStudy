@@ -1,6 +1,8 @@
 ## socket.io
-- ### 웹에서의 실시간 서비스
-HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바일에서만 지원되었기때문에 브라우저에서 실시간 웹서비스를 사용하기 위한 다양한 기술시도가 있었으나.
+
+
+#### 웹에서의 실시간 서비스
+- HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바일에서만 지원되었기때문에 브라우저에서 실시간 웹서비스를 사용하기 위한 다양한 기술시도가 있었으나.
   - ajax
   - polling
   - long poling
@@ -8,7 +10,7 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
 
   위와 같은 기술을 시도했음에도 불구하고 다양한 웹브라우저의 지원되는 차이가 존재하기했으며, 하나의 기술stack으로, HTML5의 표준인 Websocket을 자유롭게 사용하지못했기때문에 socket.io라는 라이브러리가 등장했습니다.
 
-- ### socket.io의 서버와 클라이언트
+- #### socket.io의 서버와 클라이언트
 
   - __Server__
     1. HTTP 서버
@@ -22,13 +24,9 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
     3. socket.io 클라이언트 요청 - HTML로 응답
     4. socket.io 클라이언트 초기화 및 서버접속
 
-
-
 ---
 
-
-
-- ### 실시간 서비스를 위한 서버 준비
+- #### 실시간 서비스를 위한 서버 준비
   - __Socket.io 서버 생성__
   ```javascript
   var express = require("express"); // express module
@@ -74,10 +72,13 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
     io.on("reconnectiong" , fn);
     io.on("reconnect_error" , fn);
   ```
+	
 ---
-- ### 서버와 클라이언트 연결해보기
+
+- #### 서버와 클라이언트 연결해보기
 
   - __Server__
+
   ```javascript
   var io = require("socket.io")(server);
   io.on("connection" , function(socket){// 응답객체 socket
@@ -86,6 +87,7 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
   ```
 
   - __Client__
+ 
   ```javascript
   <script src="/socket.io/socket.io.js"></script> // socket io js 파일요청
   var socket = io();
@@ -94,16 +96,19 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
       //연결성공
   });
   ```
+	
 ---
-- ### 데이터 교환
+
+- #### 데이터 교환
   - __data 주고 받기 : Event 기반__
     - data 이벤트 정의
 
   - __data 전송__
      - 이벤트 발생 : socket.emit();
+    
      ```javascript
       socket.emit("Event", data);
-    //Event 기반의 비동기처리 이므로 callback 패턴을 사용함
+			//Event 기반의 비동기처리 이므로 callback 패턴을 사용함
      ```
 
   - __data 수신__
@@ -157,6 +162,8 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
       // io.emit 으로도 가능
       // emit은 인자로 javascrip object를 넘김
       ```
+			
+			
 ---
 
 
@@ -223,7 +230,10 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
   - __같은 룸에서만 데이터 교환__
   - __룸에 입장(join) , 여러 룸에 입장 가능__
   - __룸에서 떠나기 (leave)__
+  
   ---
+	
+	
   1. __룸 접속/나가기__
   ```javascript
   //특정 룸에 입장
@@ -237,10 +247,12 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
   //특정 룸에만 이벤트 발생
   socket#to(room:String):Socket
   ```
+	
   3. __룸 입장/떠나기__
       - 서버에서 동작
 
 ---
+
 - ### Room 예제코드
   - __Server__
   ```javascript
@@ -275,12 +287,13 @@ HTTP 방식의 한계와 Socket이 데스크탑 애플리케이션 혹은 모바
       $("#messages").append($("<li>").text(str));
   });
   ```
+	
 ---
+
 ### 포스팅 마치며.
 
 - 소켓프로그래밍은 초보개발자 입장에서는 매우 어렵게느껴지나 Socket.io는
   이벤트 기반의 비동기 처리의 특성을 통해 javascript를 기존에 알고있던사람이라면은 쉽게 사용 할 수 있도록 만들어진것같다.
-  기존에 잠깐 스처지나가는식으로 한번사용해봤었는데 이번에 배워가면서 소켓내에서 1:N간의 통신이 가능하게 해주는 Namespace와 Room의 개념을 새로배웠으며, 저번에 사용하던 방식보다는 좀 더 심층적으로 사용할 수 있게된것같다.
-
+  기존에 잠깐 스처지나가는식으로 한번사용해봤었는데 이번에 배워가면서 소켓내에서 1:N간의 통신이 가능하게 해주는 Namespace와 Room의 개념을 새로배웠으며, 이전글의 net모듈을 통하여 소켓프로그래밍을 공부할때보다는 훨씬 더 단순하게 소켓프로그래밍을 할 수 있다.
 
   - __위 소스코드는 T아카데미 Nodejs 서버개발 강의를 바탕으로 작성된 내용입니다.__
