@@ -129,20 +129,22 @@ $ npm install passport
 ```
 
   - __Strategy의 인증 기능 구현__
+  - 
   ```javascript
   var strategy = new LocalStrategy(OPTION, function(username , password, done){})
   ```
+	
   - __인증 함수 구현__
-      - 인증 성공
-      ```javascript
-       done(null, USER-INFO)
-      ```
-      - 인증 실패
-      ```javascript
-       done(null , false , FAILURE-INFO)
-      ```
-
-
+  
+  - 인증 성공
+  ```javascript
+    done(null, USER-INFO)
+  ```
+  - 인증 실패
+  ```javascript
+    done(null , false , FAILURE-INFO)
+  ```
+	
   - __예제코드__
   ```javascript
   var LocalStrategy = require("passport-local").Strategy;
@@ -235,7 +237,10 @@ $ npm install passport
         done(null , user); // user에 등록
     });
     ```
+		
+		
 ---
+
 ### 세션 사용 설정 코드
 ```javascript
 /*
@@ -289,7 +294,7 @@ app.use(passport.session());
 
   - __간단한 요청 처리__
     - 로그인 요청
-    ```javascript
+    ```html
     //HTML
     <a href="/auth/facebook"> 로그인 버튼</a>
 
@@ -336,9 +341,7 @@ app.use(passport.session());
 
 ---
 ### 포스팅 마치며
-  - __상당히 많은 정보를 보고 쓰느라 머릿속이 매우 복잡해졌네요.
-  passport모듈공부하면서 최근 issue인 HTTPS 프로토콜 방식의 구형보안 버전인 SHA-1이 보안에 취약점이 발견되면서 많은 기업들이 HTTPS 암호화 통신방식의 프로토콜내에서도 SHA-1지원을 끊게 되고있는데요. 아직국내에서 공공기관 페이지는 HTTP 프로토콜을 사용한다거나 HTTPS를 사용하더라도 SHA-1구형 보안방식을 쓰는페이지가 많다고하네요.
-  아직 개발초보여서 HTTP프로토콜 조금아는수준이 되었지만 보안과 프로토콜의 대해서 웹개발자는 떌래야 땔수없는 관계같습니다. 기회가 되면 조금더 깊게 배워보는 시간을 가져보고싶네요.__
+  - __아직 개발초보여서 HTTP프로토콜 조금아는수준이 되었지만 보안과 프로토콜의 대해서 웹개발자는 떌래야 땔수없는 관계같습니다. 기회가 되면 조금더 깊게 배워보는 시간을 가져보고싶네요.__
 
 
 
