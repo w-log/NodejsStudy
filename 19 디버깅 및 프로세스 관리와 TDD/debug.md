@@ -1,7 +1,5 @@
 ## 디버그
 
-### 디버깅
-
   - Log Message 출력
 ```javascript
 console.log("일반 로그 출력");
@@ -50,7 +48,5 @@ console.error("에러 로그 출력");
     - Variables
     - Breakpoints
 
-
-
-  - __Atom 혹은 VScode 처럼 에디터 자체에서 디버그를 지원해주는 경우도 있습니다.__
+  - __Atom 혹은 VScode 처럼 IDE 자체에서 디버그를 지원해주는 경우도 있습니다.__
   
