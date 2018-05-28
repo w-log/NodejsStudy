@@ -1,10 +1,5 @@
 # Mongo DB
 
-
-- __MongoDB는 C++기반으로 작성된 Cross-platform 문서지향적(document-oriented) 데이터베이스이며, NoSQL 데이터 베이스로 분류됩니다. MongoDB는 JSON과 같은 동적 스키마형 문서들 현존하는 NoSQL 데이터베이스 중 인지도 1위를 유지하고있습니다.__
-
-
-
 - __NoSQL ? RDBMS(관계형 데이터베이스) 의 비교?__
 
 |  | 관계형 데이터베이스 | NoSQL 데이터베이스        |
