@@ -10,7 +10,7 @@
 
 ---
 
-## Session 알아보기
+#### Session 알아보기
 
   - __특징 ?__
     1. 서버에 정보 저장
@@ -28,7 +28,7 @@
 
 ---
 
-### 세션 읽고 쓰기
+#### 세션 읽고 쓰기
   - __모듈 로딩 과정__
   ```javascript
   var express = require("express");
@@ -72,7 +72,7 @@
 
 > 위와 같이 session 설정시 cookie를 통해 session ID가 request 요청에 header에 저장된 걸 볼 수 있다.
 
-### __세션 저장__
+#### __세션 저장__
 
   - __session - 서버에 기록__
     1. 서버 재시작 ▶ 세션 기록 삭제
