@@ -219,7 +219,7 @@ var my = new Child();
 var bumo = new Parent();
 my.sayHello(); //hello. from 나는 자식생성자 Class
 bumo.sayHello();  //hello. from 나는 부모생성자 Class
-//js보다 객체 간 상속구현이 매우쉽게 되있는것같다. 자주쓰면좋을듯
+
 ```
 
 
