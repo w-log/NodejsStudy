@@ -195,7 +195,9 @@ function login(id, password) {
 
   - __대칭암호화 구조__
 
+
 ![대칭암호화 구조](./assets/대칭암호화 구조.png)   
+
 
 
   - __알고리즘__
